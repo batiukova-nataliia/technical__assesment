@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body class="page">
+  <div class="container form">
+    <h1 class="form__title form__title--main">
+      User registration
+    </h1>
+    <form class="form">
+      <p class="form__title">Your name</p>
+      <input type="text" placeholder="Enter your name" class="form__input">
+      <p class="form__title">Your email</p>
+      <input type="email" id="email" placeholder="Enter your email" class="form__input">
+      <p class="form__title">Your birthday</p>
+      <input type="date" id="birthday" class="form__input">
+      <button class="form__button" type="button" onclick="checkAge()">Submit</button>
+    </form>
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    'use strict';
+
+    function checkAge() {
+
+      const emailInput = document.getElementById("email").value;
+      const birthdayInput = new Date(document.getElementById("birthday").value);
+
+      const today = new Date();
+      const age = today.getFullYear() - birthdayInput.getFullYear();
+      const messageDiv = document.getElementById("message");
+
+      if (age >= 18) {
+        messageDiv.innerText = "You are older than 18. Form submission can proceed.";
+      } else {
+        messageDiv.innerText = "You must be 18 or older to submit this form.";
+      }
+    }
+  </script>
+</body>
+
+</html>
